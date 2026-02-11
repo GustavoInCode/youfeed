@@ -62,7 +62,7 @@ export const Hero: React.FC = () => {
             <div className="relative mx-auto max-w-4xl rounded-[24px] border border-white/10 bg-[#2c2c2c] p-2 shadow-2xl overflow-hidden group">
                <img 
                  src="https://picsum.photos/id/1/1200/800" 
-                 alt="Interface YouYouTube" 
+                 alt="Interface YouFeed" 
                  className="w-full h-auto rounded-[18px] opacity-80 group-hover:opacity-100 transition-opacity"
                />
                <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a] via-transparent to-transparent"></div>
