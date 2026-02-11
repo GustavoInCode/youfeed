@@ -12,7 +12,7 @@ export const Footer: React.FC = () => {
               <div className="w-8 h-8 bg-[#7c3aed] rounded-[8px] flex items-center justify-center">
                 <Youtube className="text-white w-5 h-5" />
               </div>
-              <span className="text-xl font-bold text-white">YouYouTube</span>
+              <span className="text-xl font-bold text-white">YouFeed</span>
             </div>
             <p className="text-gray-500 text-sm mb-6 leading-relaxed">
               Recuperando o controle do tempo de milhões de usuários. Feito para quem valoriza o foco.
@@ -39,7 +39,7 @@ export const Footer: React.FC = () => {
               <li><a href="#faq" className="hover:text-[#7c3aed] transition-colors">FAQ</a></li>
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4" />
-                <span>suporte@youyoutube.com</span>
+                <span>suporte@YouFeed.com</span>
               </li>
             </ul>
           </div>
@@ -55,7 +55,7 @@ export const Footer: React.FC = () => {
 
         <div className="border-t border-white/5 pt-8 flex flex-col md:row items-center justify-between gap-6">
           <div className="text-gray-600 text-xs">
-            © {new Date().getFullYear()} YouYouTube. Todos os direitos reservados.
+            © {new Date().getFullYear()} YouFeed. Todos os direitos reservados.
           </div>
           
           <div className="flex items-center gap-6">
