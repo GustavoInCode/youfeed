@@ -14,7 +14,7 @@ export const Contact: React.FC = () => {
         <div className="p-8 bg-[#2c2c2c] rounded-[24px] border border-white/5 text-center">
           <Mail className="w-8 h-8 text-[#7c3aed] mx-auto mb-4" />
           <h3 className="text-white font-bold mb-2">E-mail</h3>
-          <p className="text-gray-500 text-sm">suporte@youyoutube.com</p>
+          <p className="text-gray-500 text-sm">gonqueoficial@gmail.com</p>
         </div>
         <div className="p-8 bg-[#2c2c2c] rounded-[24px] border border-white/5 text-center">
           <MessageSquare className="w-8 h-8 text-[#7c3aed] mx-auto mb-4" />
@@ -26,7 +26,7 @@ export const Contact: React.FC = () => {
              <span className="text-white font-bold">@</span>
           </div>
           <h3 className="text-white font-bold mb-2">Twitter</h3>
-          <p className="text-gray-500 text-sm">@YouYouTubeApp</p>
+          <p className="text-gray-500 text-sm">@YouFeed</p>
         </div>
       </div>
 
