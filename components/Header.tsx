@@ -21,7 +21,7 @@ export const Header: React.FC = () => {
               <div className="w-10 h-10 bg-[#7c3aed] rounded-[12px] flex items-center justify-center">
                 <Youtube className="text-white w-6 h-6" />
               </div>
-              <span className="text-xl font-bold tracking-tight text-white">YouYouTube</span>
+              <span className="text-xl font-bold tracking-tight text-white">YouFeed</span>
             </a>
           </div>
 
