@@ -6,7 +6,7 @@ export const Privacy: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto px-4 py-16">
       <h1 className="text-4xl font-extrabold text-white mb-4">Política de Privacidade</h1>
-      <p className="text-gray-400 mb-12">Última atualização: Dezembro de 2023</p>
+      <p className="text-gray-400 mb-12">Última atualização: Fevereiro de 2026</p>
 
       <div className="space-y-12">
         <section className="bg-[#2c2c2c] p-8 rounded-[24px] border border-white/5">
