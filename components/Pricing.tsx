@@ -9,7 +9,7 @@ const plans = [
     price: 'R$ 0',
     description: 'Para quem quer começar a focar.',
     features: [
-      { name: '1 Perfil de Foco (Lazer)', included: true },
+      { name: '1 Perfil de Foco', included: true },
       { name: 'Até 3 interesses/palavras', included: true },
       { name: 'Modo Zen básico (Views)', included: true },
       { name: 'Blacklist de 3 termos', included: true },
@@ -22,7 +22,7 @@ const plans = [
   },
   {
     name: 'Plano Pro',
-    price: 'R$ 47',
+    price: 'R$ ',
     period: '/vitalício',
     description: 'O controle total sobre sua atenção.',
     features: [
