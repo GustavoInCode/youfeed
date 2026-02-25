@@ -1,6 +1,14 @@
 
 import React from 'react';
-import { Youtube, Mail, ExternalLink, Globe } from 'lucide-react';
+import { Mail, ExternalLink, Globe } from 'lucide-react';
+
+const Logo = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" className={className}>
+    <rect x="4" y="20" width="120" height="88" rx="24" ry="24" fill="#7c3aed"/>
+    <circle cx="64" cy="64" r="32" fill="#FFFFFF"/>
+    <circle cx="64" cy="64" r="12" fill="#7c3aed"/>
+  </svg>
+);
 
 export const Footer: React.FC = () => {
   return (
@@ -8,14 +16,14 @@ export const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="col-span-1 md:col-span-1">
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-8 h-8 bg-[#7c3aed] rounded-[8px] flex items-center justify-center">
-                <Youtube className="text-white w-5 h-5" />
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-8 flex items-center justify-center">
+                <Logo className="w-full h-full" />
               </div>
-              <span className="text-xl font-bold text-white">YouFeed</span>
+              <span className="text-xl font-bold text-white">YouFeed by Uparium Studio</span>
             </div>
             <p className="text-gray-500 text-sm mb-6 leading-relaxed">
-              Recuperando o controle do tempo de milhões de usuários. Feito para quem valoriza o foco.
+              Recuperando o controle do tempo de milhões de usuários. Feito para quem valoriza o foco no YouTube.
             </p>
             <div className="flex items-center gap-4">
                <Globe className="w-5 h-5 text-gray-600" />
@@ -39,7 +47,7 @@ export const Footer: React.FC = () => {
               <li><a href="#faq" className="hover:text-[#7c3aed] transition-colors">FAQ</a></li>
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4" />
-                <span>suporte@YouFeed.com</span>
+                <span>suporte@youfeedapp.com</span>
               </li>
             </ul>
           </div>
@@ -49,13 +57,14 @@ export const Footer: React.FC = () => {
             <ul className="space-y-4 text-sm text-gray-500">
               <li><a href="#privacy" className="hover:text-[#7c3aed] transition-colors">Privacidade</a></li>
               <li><a href="#terms" className="hover:text-[#7c3aed] transition-colors">Termos de Uso</a></li>
+              <li><a href="#refund" className="hover:text-[#7c3aed] transition-colors">Reembolso</a></li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-white/5 pt-8 flex flex-col md:row items-center justify-between gap-6">
           <div className="text-gray-600 text-xs">
-            © {new Date().getFullYear()} YouFeed. Todos os direitos reservados.
+            © {new Date().getFullYear()} YouFeed by Uparium Studio. Todos os direitos reservados.
           </div>
           
           <div className="flex items-center gap-6">

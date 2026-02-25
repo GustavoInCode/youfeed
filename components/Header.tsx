@@ -1,7 +1,15 @@
 
 import React, { useState } from 'react';
-import { Menu, X, Youtube, Download } from 'lucide-react';
+import { Menu, X, Download } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+
+const Logo = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" className={className}>
+    <rect x="4" y="20" width="120" height="88" rx="24" ry="24" fill="#7c3aed"/>
+    <circle cx="64" cy="64" r="32" fill="#FFFFFF"/>
+    <circle cx="64" cy="64" r="12" fill="#7c3aed"/>
+  </svg>
+);
 
 export const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,9 +25,9 @@ export const Header: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center gap-2">
-            <a href="/#" className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-[#7c3aed] rounded-[12px] flex items-center justify-center">
-                <Youtube className="text-white w-6 h-6" />
+            <a href="/#" className="flex items-center gap-3 group">
+              <div className="w-10 h-10 flex items-center justify-center transition-transform group-hover:scale-110">
+                <Logo className="w-full h-full" />
               </div>
               <span className="text-xl font-bold tracking-tight text-white">YouFeed</span>
             </a>

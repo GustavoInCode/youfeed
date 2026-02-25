@@ -5,10 +5,10 @@ import { ChevronDown, ChevronUp } from 'lucide-react';
 const faqs = [
   {
     q: 'Como a extensão funciona exatamente?',
-    a: 'A YouFeed injeta uma interface limpa por cima da Home do YouTube original. Ela filtra os vídeos com base nos perfis e palavras-chave que você define, ocultando o feed infinito e mostrando apenas o que importa.',
+    a: 'O YouFeed injeta uma interface limpa por cima da Home do YouTube original. Ele filtra os vídeos com base nos perfis e palavras-chave que você define, ocultando o feed infinito e mostrando apenas o que importa.',
   },
   {
-    q: 'A YouFeed coleta meus dados?',
+    q: 'O YouFeed coleta meus dados?',
     a: 'Absolutamente não. Nossos termos e políticas são claros: todos os dados (interesses, perfis, estatísticas) são armazenados localmente no seu navegador usando o chrome.storage. Nada sai do seu computador.',
   },
   {
@@ -17,7 +17,7 @@ const faqs = [
   },
   {
     q: 'Funciona em outros navegadores além do Chrome?',
-    a: 'A YouFeed foi desenhada para o Chrome, mas é compatível com outros navegadores baseados em Chromium, como Brave, Microsoft Edge e Opera.',
+    a: 'O YouFeed foi desenhado para o Chrome, mas é compatível com outros navegadores baseados em Chromium, como Brave, Microsoft Edge e Opera.',
   },
 ];
 

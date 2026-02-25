@@ -6,7 +6,7 @@ export const Privacy: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto px-4 py-16">
       <h1 className="text-4xl font-extrabold text-white mb-4">Política de Privacidade</h1>
-      <p className="text-gray-400 mb-12">Última atualização: Fevereiro de 2026</p>
+      <p className="text-gray-400 mb-12">Última atualização: Dezembro de 2023</p>
 
       <div className="space-y-12">
         <section className="bg-[#2c2c2c] p-8 rounded-[24px] border border-white/5">
@@ -15,7 +15,7 @@ export const Privacy: React.FC = () => {
             <h2 className="text-2xl font-bold text-white">Compromisso com a Privacidade</h2>
           </div>
           <p className="text-gray-400 leading-relaxed">
-            A YouFeed foi desenhada para respeitar a tua privacidade. Não recolhemos, não armazenamos e não vendemos os teus dados pessoais. Nosso modelo de negócio é baseado na venda da licença Pro, não nos teus dados.
+            O YouFeed foi desenhado para respeitar a tua privacidade. Não recolhemos, não armazenamos e não vendemos os teus dados pessoais. Nosso modelo de negócio é baseado na venda da licença Pro, não nos teus dados.
           </p>
         </section>
 
@@ -39,7 +39,7 @@ export const Privacy: React.FC = () => {
               <strong>Permissões do YouTube:</strong> A extensão solicita permissão para aceder ao <code>youtube.com</code> apenas para injetar a interface personalizada e filtrar o conteúdo da Home de acordo com as tuas escolhas.
             </p>
             <p className="text-gray-400 leading-relaxed">
-              <strong>Processamento de Pagamentos:</strong> Os pagamentos são processados por parceiros externos (ex: Lemon Squeezy ou Paddle). A YouFeed não tem acesso aos teus dados de cartão de crédito ou informações financeiras detalhadas.
+              <strong>Processamento de Pagamentos:</strong> Os pagamentos são processados por parceiros externos (ex: Lemon Squeezy ou Paddle). O YouFeed não tem acesso aos teus dados de cartão de crédito ou informações financeiras detalhadas.
             </p>
           </div>
         </section>

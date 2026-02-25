@@ -27,7 +27,7 @@ export const Hero: React.FC = () => {
               Você é o <span className="text-[#7c3aed]">algoritmo.</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-              Recupere o controle da sua Home. Filtre distrações e transforme o YouTube numa ferramenta de foco e produtividade.
+              Recupere o controle da sua Home. Filtre distrações e transforme o YouTube numa ferramenta de foco e produtividade com o YouFeed.
             </p>
           </motion.div>
 

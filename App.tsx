@@ -10,6 +10,7 @@ import { Footer } from './components/Footer';
 import { Privacy } from './components/Privacy';
 import { Terms } from './components/Terms';
 import { Contact } from './components/Contact';
+import { Refund } from './components/Refund';
 
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<string>('home');
@@ -33,6 +34,8 @@ const App: React.FC = () => {
         return <Privacy />;
       case 'terms':
         return <Terms />;
+      case 'refund':
+        return <Refund />;
       case 'contact':
         return <Contact />;
       default:
