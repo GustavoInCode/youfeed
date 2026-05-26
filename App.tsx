@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
@@ -51,9 +52,9 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="app-layout">
+    <div className="min-h-screen flex flex-col">
       <Header />
-      <main className="main-content">
+      <main className="flex-grow pt-20">
         {renderContent()}
       </main>
       <Footer />
