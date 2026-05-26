@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 
@@ -13,7 +12,7 @@ const faqs = [
   },
   {
     q: 'O Plano Pro é mensal ou anual?',
-    a: 'Atualmente, o Plano Pro é um pagamento único (Vitalício). Você compra uma vez e tem acesso a todas as atualizações futuras e recursos premium para sempre.',
+    a: 'O Plano Pro é um plano anual. O YouFeed conta com atualizações contínuas para manter-se compatível com as mudanças do YouTube.',
   },
   {
     q: 'Funciona em outros navegadores além do Chrome?',
@@ -25,21 +24,21 @@ export const FAQ: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="py-24 bg-[#1a1a1a]">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-12 italic">Perguntas Frequentes.</h2>
-        <div className="space-y-4">
+    <section id="faq" className="section bg-primary">
+      <div className="container max-w-3xl">
+        <h2 className="h2 text-center mb-12 italic">Perguntas Frequentes.</h2>
+        <div className="faq-list">
           {faqs.map((faq, i) => (
-            <div key={i} className="bg-[#2c2c2c] rounded-[12px] border border-white/5 overflow-hidden">
+            <div key={i} className="faq-item">
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-[#3d3d3d] transition-colors"
+                className="faq-question-btn"
               >
-                <span className="font-semibold text-white">{faq.q}</span>
-                {openIndex === i ? <ChevronUp className="w-5 h-5 text-[#7c3aed]" /> : <ChevronDown className="w-5 h-5 text-gray-400" />}
+                <span className="faq-question">{faq.q}</span>
+                {openIndex === i ? <ChevronUp size={20} className="faq-icon-open" /> : <ChevronDown size={20} className="faq-icon-closed" />}
               </button>
               {openIndex === i && (
-                <div className="px-6 pb-5 text-gray-400 text-sm leading-relaxed">
+                <div className="faq-answer">
                   {faq.a}
                 </div>
               )}

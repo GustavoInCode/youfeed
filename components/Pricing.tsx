@@ -1,54 +1,93 @@
-
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Check, X, ShieldCheck } from 'lucide-react';
+import { Check, X, ShieldCheck, Loader2 } from 'lucide-react';
 
-const plans = [
-  {
-    name: 'Plano Free',
-    price: 'R$ 0',
-    description: 'Para quem quer começar a focar.',
-    features: [
-      { name: '1 Perfil de Foco (Lazer)', included: true },
-      { name: 'Até 3 interesses/palavras', included: true },
-      { name: 'Modo Zen básico (Views)', included: true },
-      { name: 'Blacklist de 3 termos', included: true },
-      { name: 'Canais Favoritados', included: false },
-      { name: 'Estatísticas de Tempo', included: false },
-      { name: 'Suporte prioritário', included: false },
-    ],
-    cta: 'Começar Agora',
-    highlight: false,
-  },
-  {
-    name: 'Plano Pro',
-    price: 'R$ 47',
-    period: '/vitalício',
-    description: 'O controle total sobre sua atenção.',
-    features: [
-      { name: 'Perfis ilimitados (Estudo/Trabalho)', included: true },
-      { name: 'Interesses Infinitos', included: true },
-      { name: 'Modo Zen completo (Comentários)', included: true },
-      { name: 'Blacklist ilimitada', included: true },
-      { name: 'Canais Premium Favoritados', included: true },
-      { name: 'Estatísticas Detalhadas', included: true },
-      { name: 'Suporte Prioritário', included: true },
-    ],
-    cta: 'Garantir Acesso Pro',
-    highlight: true,
-  },
-];
+const DEVELOPED_COUNTRIES = ['US', 'CA', 'GB', 'DE', 'FR', 'IT', 'ES', 'AU', 'NZ', 'JP', 'IE', 'CH', 'SE', 'NO', 'DK', 'FI', 'NL', 'BE', 'AT', 'PT'];
+const EU_COUNTRIES = ['DE', 'FR', 'IT', 'ES', 'IE', 'PT', 'NL', 'BE', 'AT', 'FI'];
+
+const useRegionalPricing = () => {
+  const [price, setPrice] = useState({ amount: '...', currency: '', symbol: '' });
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchRegion = async () => {
+      try {
+        const response = await fetch('https://ipapi.co/json/');
+        const data = await response.json();
+        const country = data.country_code;
+
+        if (DEVELOPED_COUNTRIES.includes(country)) {
+          if (EU_COUNTRIES.includes(country)) {
+            setPrice({ amount: '10', currency: 'EUR', symbol: '€' });
+          } else {
+            setPrice({ amount: '10', currency: 'USD', symbol: '$' });
+          }
+        } else {
+          // Developing countries get 50% discount
+          setPrice({ amount: '5', currency: 'USD', symbol: '$' });
+        }
+      } catch (error) {
+        // Fallback to 10 USD
+        setPrice({ amount: '10', currency: 'USD', symbol: '$' });
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchRegion();
+  }, []);
+
+  return { price, loading };
+};
 
 export const Pricing: React.FC = () => {
+  const { price, loading } = useRegionalPricing();
+
+  const plans = [
+    {
+      name: 'Plano Free',
+      priceText: 'Grátis',
+      period: '',
+      description: 'Para quem quer começar a focar.',
+      features: [
+        { name: '1 Perfil de Foco (Lazer)', included: true },
+        { name: 'Até 3 interesses/palavras', included: true },
+        { name: 'Modo Zen básico (Views)', included: true },
+        { name: 'Blacklist de 3 termos', included: true },
+        { name: 'Canais Favoritados', included: false },
+        { name: 'Estatísticas de Tempo', included: false },
+        { name: 'Suporte prioritário', included: false },
+      ],
+      cta: 'Começar Agora',
+      highlight: false,
+    },
+    {
+      name: 'Plano Pro',
+      priceText: loading ? '...' : `${price.symbol}${price.amount}`,
+      period: '/ano',
+      description: 'O controle total sobre sua atenção.',
+      features: [
+        { name: 'Perfis ilimitados (Estudo/Trabalho)', included: true },
+        { name: 'Interesses Infinitos', included: true },
+        { name: 'Modo Zen completo (Comentários)', included: true },
+        { name: 'Blacklist ilimitada', included: true },
+        { name: 'Canais Premium Favoritados', included: true },
+        { name: 'Estatísticas Detalhadas', included: true },
+        { name: 'Suporte Prioritário', included: true },
+      ],
+      cta: 'Garantir Acesso Pro',
+      highlight: true,
+    },
+  ];
+
   return (
-    <section id="pricing" className="py-24 bg-[#2c2c2c]/20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="pricing" className="section bg-secondary">
+      <div className="container">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Investimento em Foco.</h2>
-          <p className="text-gray-400">Escolha o plano que melhor se adapta ao seu estilo de aprendizado.</p>
+          <h2 className="h2 mb-4">Investimento em Foco.</h2>
+          <p className="subtitle">Escolha o plano que melhor se adapta ao seu estilo de aprendizado.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="pricing-grid">
           {plans.map((plan, index) => (
             <motion.div
               key={plan.name}
@@ -56,36 +95,36 @@ export const Pricing: React.FC = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`relative p-8 rounded-[24px] border ${
-                plan.highlight
-                  ? 'bg-[#2c2c2c] border-[#7c3aed] shadow-2xl shadow-[#7c3aed]/10'
-                  : 'bg-[#1a1a1a] border-white/5'
-              }`}
+              className={`pricing-card ${plan.highlight ? 'pricing-card-highlight' : ''}`}
             >
               {plan.highlight && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#7c3aed] text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">
+                <div className="pricing-badge">
                   Mais Popular
                 </div>
               )}
 
-              <div className="mb-8">
-                <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
-                <p className="text-gray-400 text-sm">{plan.description}</p>
-                <div className="mt-6 flex items-baseline gap-1">
-                  <span className="text-4xl font-extrabold text-white">{plan.price}</span>
-                  {plan.period && <span className="text-gray-500 font-medium">{plan.period}</span>}
+              <div className="pricing-header">
+                <h3 className="h3 mb-2">{plan.name}</h3>
+                <p className="pricing-desc">{plan.description}</p>
+                <div className="pricing-price-wrap">
+                  {loading && plan.highlight ? (
+                    <Loader2 className="pricing-loader" />
+                  ) : (
+                    <span className="pricing-amount">{plan.priceText}</span>
+                  )}
+                  {plan.period && <span className="pricing-period">{plan.period}</span>}
                 </div>
               </div>
 
-              <ul className="space-y-4 mb-8">
+              <ul className="pricing-features">
                 {plan.features.map((feature, i) => (
-                  <li key={i} className="flex items-center gap-3 text-sm">
+                  <li key={i} className="pricing-feature-item">
                     {feature.included ? (
-                      <Check className="w-5 h-5 text-green-500" />
+                      <Check size={20} className="feature-icon-included" />
                     ) : (
-                      <X className="w-5 h-5 text-red-500/50" />
+                      <X size={20} className="feature-icon-excluded" />
                     )}
-                    <span className={feature.included ? 'text-gray-200' : 'text-gray-500'}>
+                    <span className={feature.included ? 'feature-text-included' : 'feature-text-excluded'}>
                       {feature.name}
                     </span>
                   </li>
@@ -93,19 +132,15 @@ export const Pricing: React.FC = () => {
               </ul>
 
               <button
-                className={`w-full py-4 rounded-[12px] font-bold text-lg transition-all ${
-                  plan.highlight
-                    ? 'bg-[#7c3aed] hover:bg-[#8b5cf6] text-white shadow-lg'
-                    : 'bg-[#2c2c2c] hover:bg-[#3d3d3d] text-white border border-white/10'
-                }`}
+                className={`btn btn-lg w-full ${plan.highlight ? 'btn-primary' : 'btn-secondary'}`}
               >
                 {plan.cta}
               </button>
               
-              {plan.highlight && (
-                <div className="mt-4 flex items-center justify-center gap-2 text-xs text-gray-500">
-                  <ShieldCheck className="w-4 h-4" />
-                  Pagamento Único. Acesso Vitalício.
+              {plan.highlight && !loading && price.amount === '5' && (
+                <div className="pricing-geo-notice">
+                  <ShieldCheck size={16} />
+                  Desconto regional de 50% aplicado.
                 </div>
               )}
             </motion.div>
